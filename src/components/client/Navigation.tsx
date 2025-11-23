@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 import {
     Navbar,
     NavBody,
@@ -12,16 +13,18 @@ import {
     MobileNavToggle,
     MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-
-const navLinks = [
-    { name: "Início", link: "#home" },
-    { name: "Serviços", link: "#services" },
-    { name: "Sobre Nós", link: "#about" },
-    { name: "Contato", link: "#contact" },
-];
+import LanguageSelector from "./LanguageSelector";
 
 export default function Navigation() {
+    const t = useTranslations('nav');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const navLinks = [
+        { name: t('home'), link: "#home" },
+        { name: t('services'), link: "#services" },
+        { name: t('about'), link: "#about" },
+        { name: t('contact'), link: "#contact" },
+    ];
 
     const handleNavClick = (href: string) => {
         if (href.startsWith("#")) {
@@ -40,13 +43,14 @@ export default function Navigation() {
                 <NavbarLogo />
                 <NavItems items={navLinks} onItemClick={() => { }} />
                 <div className="flex items-center gap-4">
+                    <LanguageSelector />
                     <NavbarButton
                         variant="primary"
                         href="https://calendly.com/pulsesync"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Agendar Demo
+                        {t('scheduleDemo')}
                     </NavbarButton>
                 </div>
             </NavBody>
@@ -76,6 +80,9 @@ export default function Navigation() {
                         </a>
                     ))}
                     <div className="flex w-full flex-col gap-4 mt-4">
+                        <div className="flex justify-center mb-2">
+                            <LanguageSelector />
+                        </div>
                         <NavbarButton
                             onClick={() => setIsMobileMenuOpen(false)}
                             variant="primary"
@@ -84,7 +91,7 @@ export default function Navigation() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Agendar Demo
+                            {t('scheduleDemo')}
                         </NavbarButton>
                     </div>
                 </MobileNavMenu>
@@ -92,3 +99,5 @@ export default function Navigation() {
         </Navbar>
     );
 }
+
+

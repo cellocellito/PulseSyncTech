@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from 'next-intl';
 
 export default function FinalCTA() {
+    const t = useTranslations('cta');
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -25,16 +27,16 @@ export default function FinalCTA() {
                 <div className="space-y-8">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
                         <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
-                            Conecte-se ao
+                            {t('title')}
                         </span>
                         <br />
                         <span className="bg-gradient-to-r from-primary via-chart-2 to-chart-3 bg-clip-text text-transparent">
-                            futuro agora.
+                            {t('titleLine2')}
                         </span>
                     </h2>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Agende uma demonstração gratuita e descubra como a automação inteligente pode transformar sua empresa.
+                        {t('description')}
                     </p>
 
                     <Button
@@ -45,7 +47,7 @@ export default function FinalCTA() {
                     >
                         <a href="https://calendly.com/pulsesync" target="_blank" rel="noopener noreferrer">
                             <Calendar className="mr-2 h-5 w-5" />
-                            Agende uma demonstração
+                            {t('scheduleDemo')}
                             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                     </Button>
@@ -54,3 +56,5 @@ export default function FinalCTA() {
         </motion.section>
     );
 }
+
+

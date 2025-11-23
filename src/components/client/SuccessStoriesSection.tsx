@@ -3,47 +3,50 @@
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from 'next-intl';
 
-const differentiators = [
-    {
-        title: "Segurança de dados",
-        description: "Self-hosted ou cloud, você decide. Controle total sobre seus dados.",
-    },
-    {
-        title: "Implementação rápida",
-        description: "Do planejamento à execução em dias, não meses.",
-    },
-    {
-        title: "Suporte especializado",
-        description: "Time de experts em n8n 100% em português.",
-    },
-];
-
-export default function TestimonialsSection() {
+export default function SuccessStoriesSection() {
+    const t = useTranslations('successStories');
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    const successStories = [
+        {
+            title: t('items.ecommerce.title'),
+            description: t('items.ecommerce.description'),
+        },
+        {
+            title: t('items.realEstate.title'),
+            description: t('items.realEstate.description'),
+        },
+        {
+            title: t('items.agency.title'),
+            description: t('items.agency.description'),
+        },
+    ];
 
     return (
         <motion.section
             ref={ref}
-            id="about"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="py-24 relative"
+            className="py-24 relative bg-secondary/20"
         >
             <div className="container px-4 mx-auto max-w-7xl">
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                        Por que escolher a Pulse Sync?
+                        {t('title')}
                     </h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Junte-se a empresas que já transformaram seus processos
+                        {t('subtitle')}
                     </p>
                 </div>
 
-                <HoverEffect items={differentiators} />
+                <HoverEffect items={successStories} className="grid-cols-1 md:grid-cols-3" />
             </div>
         </motion.section>
     );
 }
+
+

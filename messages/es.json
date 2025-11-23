@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto",
+    "scheduleDemo": "Agendar Demo"
+  },
+  "hero": {
+    "title": "Automatiza el futuro",
+    "titleLine2": "de tu empresa.",
+    "description": "Pulse Sync conecta sistemas, elimina tareas manuales y acelera resultados con automatizaciones n8n inteligentes.",
+    "startTransformation": "Inicia tu transformación",
+    "learnMore": "Saber más"
+  },
+  "benefits": {
+    "title": "Transforma tu negocio",
+    "subtitle": "Potencia tu empresa con automatizaciones inteligentes que entregan resultados reales",
+    "items": {
+      "speed": {
+        "title": "Velocidad",
+        "description": "Automatiza procesos en minutos, no en meses. Reduce el tiempo de ejecución hasta en un 90%."
+      },
+      "efficiency": {
+        "title": "Eficiencia",
+        "description": "Elimina errores humanos y tareas repetitivas. Enfócate en lo que realmente importa."
+      },
+      "integration": {
+        "title": "Integración",
+        "description": "Conecta más de 400+ aplicaciones sin código. Sincroniza datos en tiempo real."
+      },
+      "precision": {
+        "title": "Precisión",
+        "description": "Flujos de trabajo inteligentes con IA. Decisiones basadas en datos confiables."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "¿Por qué elegir Pulse Sync?",
+    "subtitle": "Únete a empresas que ya han transformado sus procesos",
+    "items": {
+      "security": {
+        "title": "Seguridad de datos",
+        "description": "Self-hosted o cloud, tú decides. Control total sobre tus datos."
+      },
+      "implementation": {
+        "title": "Implementación rápida",
+        "description": "Desde la planificación hasta la ejecución en días, no meses."
+      },
+      "support": {
+        "title": "Soporte especializado",
+        "description": "Equipo de expertos en n8n 100% en español."
+      }
+    }
+  },
+  "successStories": {
+    "title": "Casos de Éxito",
+    "subtitle": "Ve cómo las empresas están revolucionando sus resultados con nuestras automatizaciones",
+    "items": {
+      "ecommerce": {
+        "title": "E-commerce Scale",
+        "description": "Reducción del 70% en el tiempo de respuesta y atención 24/7 con agentes de IA, resultando en mayor satisfacción del cliente."
+      },
+      "realEstate": {
+        "title": "Inmobiliaria Prime",
+        "description": "Aumento del 40% en la tasa de conversión con calificación automática de leads y programación de visitas instantánea."
+      },
+      "agency": {
+        "title": "Agencia Growth",
+        "description": "Ahorro de 20 horas semanales automatizando informes de rendimiento y procesos de incorporación de nuevos clientes."
+      }
+    }
+  },
+  "cta": {
+    "title": "Conéctate al",
+    "titleLine2": "futuro ahora.",
+    "description": "Agenda una demostración gratuita y descubre cómo la automatización inteligente puede transformar tu empresa.",
+    "scheduleDemo": "Agendar una demostración"
+  },
+  "footer": {
+    "tagline": "Automatiza el futuro de tu empresa con inteligencia.",
+    "solutions": "Soluciones",
+    "company": "Empresa",
+    "contact": "Contacto",
+    "links": {
+      "processAutomation": "Automatización de Procesos",
+      "systemIntegration": "Integración de Sistemas",
+      "n8nConsulting": "Consultoría n8n",
+      "aboutUs": "Sobre Nosotros",
+      "successCases": "Casos de Éxito",
+      "contact": "Contacto"
+    },
+    "copyright": "© 2025 Pulse Sync. Todos los derechos reservados."
+  },
+  "workflow": {
+    "title": "Automatización visual e inteligente",
+    "subtitle": "Crea flujos de trabajo complejos con la interfaz visual de n8n",
+    "description": "Visualiza y gestiona automatizaciones complejas con la interfaz drag-and-drop de n8n. Conecta aplicaciones, añade lógica condicional e integra IA en minutos.",
+    "workflows": {
+      "chatbot": "Chatbot IA",
+      "calendar": "Agendamiento",
+      "leads": "Gestión de Leads"
+    },
+    "steps": {
+      "chatbot": {
+        "step1": "Recibe mensaje",
+        "step2": "Procesa con IA",
+        "step3": "Busca contexto",
+        "step4": "Genera respuesta",
+        "step5": "Envía al cliente"
+      },
+      "calendar": {
+        "step1": "Nueva cita",
+        "step2": "Verifica disponibilidad",
+        "step3": "Valida reglas",
+        "step4": "Envía invitación",
+        "step5": "Guarda en CRM"
+      },
+      "leads": {
+        "step1": "Captura lead",
+        "step2": "Enriquece datos",
+        "step3": "Verifica duplicados",
+        "step4": "Calcula puntuación",
+        "step5": "Notifica ventas"
+      }
+    }
+  }
+}
+

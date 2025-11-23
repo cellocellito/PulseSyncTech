@@ -1,72 +1,70 @@
 import { Mail, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from '@/i18n/routing';
+import { getTranslations } from 'next-intl/server';
 
-export default function Footer() {
+export default async function Footer() {
+    const t = await getTranslations('footer');
+    
     return (
         <footer className="border-t border-border/30 bg-background/50 backdrop-blur-sm">
             <div className="container px-4 mx-auto max-w-7xl py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
-                            {/* <img
-                src={logo}
-                alt="Pulse Sync Logo"
-                className="w-8 h-8"
-              /> */}
                             <span className="text-xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
                                 Pulse Sync
                             </span>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                            Automatize o futuro da sua empresa com inteligência.
+                            {t('tagline')}
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold text-foreground mb-4">Soluções</h3>
+                        <h3 className="font-semibold text-foreground mb-4">{t('solutions')}</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-automation">
-                                    Automação de Processos
+                                    {t('links.processAutomation')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-integration">
-                                    Integração de Sistemas
+                                    {t('links.systemIntegration')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-consulting">
-                                    Consultoria n8n
+                                    {t('links.n8nConsulting')}
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold text-foreground mb-4">Empresa</h3>
+                        <h3 className="font-semibold text-foreground mb-4">{t('company')}</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-about">
-                                    Sobre Nós
+                                    {t('links.aboutUs')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-cases">
-                                    Casos de Sucesso
+                                    {t('links.successCases')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-contact">
-                                    Contato
+                                    {t('links.contact')}
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="font-semibold text-foreground mb-4">Contato</h3>
+                        <h3 className="font-semibold text-foreground mb-4">{t('contact')}</h3>
                         <div className="space-y-3">
                             <a
                                 href="mailto:pulsesyncwork@gmail.com"
@@ -96,10 +94,12 @@ export default function Footer() {
 
                 <div className="pt-8 border-t border-border/30 text-center">
                     <p className="text-sm text-muted-foreground">
-                        © 2025 Pulse Sync. Todos os direitos reservados.
+                        {t('copyright')}
                     </p>
                 </div>
             </div>
         </footer>
     );
 }
+
+

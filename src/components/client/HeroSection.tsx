@@ -1,22 +1,28 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { WavyBackground } from "@/components/ui/wavy-background";
+import { useTranslations } from 'next-intl';
+import { Link as I18nLink } from '@/i18n/routing';
 
 export default function HeroSection() {
+    const t = useTranslations('hero');
+    
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
             <WavyBackground className="max-w-4xl mx-auto pb-40" backgroundFill="hsl(var(--background))" colors={["#8b5cf6", "#6366f1", "#ec4899", "#a855f7", "#d946ef"]}>
                 <div className="container relative z-10 px-4 mx-auto max-w-6xl text-center">
                     <div className="space-y-8 animate-fade-in-up">
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">
-                            Automatize o futuro
+                            {t('title')}
                             <br />
-                            da sua empresa.
+                            {t('titleLine2')}
                         </h1>
 
                         <p className="text-lg md:text-xl text-foreground max-w-3xl mx-auto leading-relaxed">
-                            A Pulse Sync conecta sistemas, elimina tarefas manuais e acelera resultados com automações n8n inteligentes.
+                            {t('description')}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -27,7 +33,7 @@ export default function HeroSection() {
                                 asChild
                             >
                                 <a href="https://calendly.com/pulsesync" target="_blank" rel="noopener noreferrer">
-                                    Inicie sua transformação
+                                    {t('startTransformation')}
                                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                 </a>
                             </Button>
@@ -39,9 +45,9 @@ export default function HeroSection() {
                                 data-testid="button-learn-more"
                                 asChild
                             >
-                                <Link href="#services">
-                                    Saiba mais
-                                </Link>
+                                <I18nLink href="#services">
+                                    {t('learnMore')}
+                                </I18nLink>
                             </Button>
                         </div>
                     </div>
@@ -50,3 +56,5 @@ export default function HeroSection() {
         </section>
     );
 }
+
+

@@ -7,6 +7,7 @@ import {
     useScroll,
     useMotionValueEvent,
 } from "framer-motion";
+import Image from "next/image";
 
 import React, { useRef, useState } from "react";
 
@@ -226,9 +227,14 @@ export const NavbarLogo = () => {
             href="#home"
             className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
         >
-            <span className="font-bold text-xl bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
-                Pulse Sync
-            </span>
+            <Image 
+                src="/Logo Pulse Sync TRANSPARENTE.png" 
+                alt="PulseSync Logo" 
+                width={150}
+                height={40}
+                className="h-10 w-auto object-contain"
+                priority
+            />
         </a>
     );
 };

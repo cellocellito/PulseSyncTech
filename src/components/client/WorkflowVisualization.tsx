@@ -4,56 +4,58 @@ import { useState } from "react";
 import { Database, Mail, Webhook, Sparkles, GitBranch, MessageSquare, Calendar, Users, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 type WorkflowType = "chatbot" | "calendar" | "leads";
 
-const workflows = [
-    {
-        id: "chatbot" as WorkflowType,
-        icon: MessageSquare,
-        label: "Chatbot IA",
-        color: "from-purple-500 to-pink-500",
-    },
-    {
-        id: "calendar" as WorkflowType,
-        icon: Calendar,
-        label: "Agendamento",
-        color: "from-blue-500 to-cyan-500",
-    },
-    {
-        id: "leads" as WorkflowType,
-        icon: Users,
-        label: "Gestão de Leads",
-        color: "from-green-500 to-emerald-500",
-    },
-];
-
-const workflowSteps = {
-    chatbot: [
-        { icon: MessageSquare, label: "Recebe mensagem", color: "text-purple-400" },
-        { icon: Sparkles, label: "Processa com IA", color: "text-pink-400" },
-        { icon: Database, label: "Busca contexto", color: "text-purple-400" },
-        { icon: Zap, label: "Gera resposta", color: "text-pink-400" },
-        { icon: ArrowRight, label: "Envia ao cliente", color: "text-purple-400" },
-    ],
-    calendar: [
-        { icon: Calendar, label: "Novo agendamento", color: "text-blue-400" },
-        { icon: Users, label: "Verifica disponibilidade", color: "text-cyan-400" },
-        { icon: Sparkles, label: "Valida regras", color: "text-blue-400" },
-        { icon: Mail, label: "Envia convite", color: "text-cyan-400" },
-        { icon: Database, label: "Salva no CRM", color: "text-blue-400" },
-    ],
-    leads: [
-        { icon: Webhook, label: "Captura lead", color: "text-green-400" },
-        { icon: Sparkles, label: "Enriquece dados", color: "text-emerald-400" },
-        { icon: Database, label: "Verifica duplicidade", color: "text-green-400" },
-        { icon: GitBranch, label: "Calcula score", color: "text-emerald-400" },
-        { icon: Mail, label: "Notifica vendas", color: "text-green-400" },
-    ],
-};
-
 export default function WorkflowVisualization() {
+    const t = useTranslations('workflow');
     const [activeWorkflow, setActiveWorkflow] = useState<WorkflowType>("chatbot");
+
+    const workflows = [
+        {
+            id: "chatbot" as WorkflowType,
+            icon: MessageSquare,
+            label: t('workflows.chatbot'),
+            color: "from-purple-500 to-pink-500",
+        },
+        {
+            id: "calendar" as WorkflowType,
+            icon: Calendar,
+            label: t('workflows.calendar'),
+            color: "from-blue-500 to-cyan-500",
+        },
+        {
+            id: "leads" as WorkflowType,
+            icon: Users,
+            label: t('workflows.leads'),
+            color: "from-green-500 to-emerald-500",
+        },
+    ];
+
+    const workflowSteps = {
+        chatbot: [
+            { icon: MessageSquare, label: t('steps.chatbot.step1'), color: "text-purple-400" },
+            { icon: Sparkles, label: t('steps.chatbot.step2'), color: "text-pink-400" },
+            { icon: Database, label: t('steps.chatbot.step3'), color: "text-purple-400" },
+            { icon: Zap, label: t('steps.chatbot.step4'), color: "text-pink-400" },
+            { icon: ArrowRight, label: t('steps.chatbot.step5'), color: "text-purple-400" },
+        ],
+        calendar: [
+            { icon: Calendar, label: t('steps.calendar.step1'), color: "text-blue-400" },
+            { icon: Users, label: t('steps.calendar.step2'), color: "text-cyan-400" },
+            { icon: Sparkles, label: t('steps.calendar.step3'), color: "text-blue-400" },
+            { icon: Mail, label: t('steps.calendar.step4'), color: "text-cyan-400" },
+            { icon: Database, label: t('steps.calendar.step5'), color: "text-blue-400" },
+        ],
+        leads: [
+            { icon: Webhook, label: t('steps.leads.step1'), color: "text-green-400" },
+            { icon: Sparkles, label: t('steps.leads.step2'), color: "text-emerald-400" },
+            { icon: Database, label: t('steps.leads.step3'), color: "text-green-400" },
+            { icon: GitBranch, label: t('steps.leads.step4'), color: "text-emerald-400" },
+            { icon: Mail, label: t('steps.leads.step5'), color: "text-green-400" },
+        ],
+    };
 
     return (
         <section id="workflow" className="py-24 relative overflow-hidden">
@@ -64,10 +66,10 @@ export default function WorkflowVisualization() {
             <div className="container px-4 mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                        Automação visual e inteligente
+                        {t('title')}
                     </h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Crie fluxos de trabalho complexos com interface visual do n8n
+                        {t('subtitle')}
                     </p>
                 </div>
 
@@ -183,11 +185,12 @@ export default function WorkflowVisualization() {
                 {/* Bottom Description */}
                 <div className="mt-16 text-center">
                     <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Visualize e gerencie automações complexas com a interface drag-and-drop do n8n.
-                        Conecte aplicações, adicione lógica condicional e integre IA em minutos.
+                        {t('description')}
                     </p>
                 </div>
             </div>
         </section>
     );
 }
+
+

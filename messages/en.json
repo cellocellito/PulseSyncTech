@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "scheduleDemo": "Schedule Demo"
+  },
+  "hero": {
+    "title": "Automate the future",
+    "titleLine2": "of your company.",
+    "description": "Pulse Sync connects systems, eliminates manual tasks and accelerates results with intelligent n8n automations.",
+    "startTransformation": "Start your transformation",
+    "learnMore": "Learn more"
+  },
+  "benefits": {
+    "title": "Transform your business",
+    "subtitle": "Empower your company with intelligent automations that deliver real results",
+    "items": {
+      "speed": {
+        "title": "Speed",
+        "description": "Automate processes in minutes, not months. Reduce execution time by up to 90%."
+      },
+      "efficiency": {
+        "title": "Efficiency",
+        "description": "Eliminate human errors and repetitive tasks. Focus on what really matters."
+      },
+      "integration": {
+        "title": "Integration",
+        "description": "Connect more than 400+ applications without code. Synchronize data in real time."
+      },
+      "precision": {
+        "title": "Precision",
+        "description": "Intelligent workflows with AI. Decisions based on reliable data."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Why choose Pulse Sync?",
+    "subtitle": "Join companies that have already transformed their processes",
+    "items": {
+      "security": {
+        "title": "Data security",
+        "description": "Self-hosted or cloud, you decide. Full control over your data."
+      },
+      "implementation": {
+        "title": "Fast implementation",
+        "description": "From planning to execution in days, not months."
+      },
+      "support": {
+        "title": "Specialized support",
+        "description": "Team of n8n experts 100% in English."
+      }
+    }
+  },
+  "successStories": {
+    "title": "Success Stories",
+    "subtitle": "See how companies are revolutionizing their results with our automations",
+    "items": {
+      "ecommerce": {
+        "title": "E-commerce Scale",
+        "description": "70% reduction in response time and 24/7 service with AI agents, resulting in higher customer satisfaction."
+      },
+      "realEstate": {
+        "title": "Prime Real Estate",
+        "description": "40% increase in conversion rate with automatic lead qualification and instant visit scheduling."
+      },
+      "agency": {
+        "title": "Growth Agency",
+        "description": "20 hours per week saved by automating performance reports and new client onboarding processes."
+      }
+    }
+  },
+  "cta": {
+    "title": "Connect to the",
+    "titleLine2": "future now.",
+    "description": "Schedule a free demonstration and discover how intelligent automation can transform your company.",
+    "scheduleDemo": "Schedule a demonstration"
+  },
+  "footer": {
+    "tagline": "Automate the future of your company with intelligence.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "contact": "Contact",
+    "links": {
+      "processAutomation": "Process Automation",
+      "systemIntegration": "System Integration",
+      "n8nConsulting": "n8n Consulting",
+      "aboutUs": "About Us",
+      "successCases": "Success Cases",
+      "contact": "Contact"
+    },
+    "copyright": "© 2025 Pulse Sync. All rights reserved."
+  },
+  "workflow": {
+    "title": "Visual and intelligent automation",
+    "subtitle": "Create complex workflows with n8n's visual interface",
+    "description": "Visualize and manage complex automations with n8n's drag-and-drop interface. Connect applications, add conditional logic and integrate AI in minutes.",
+    "workflows": {
+      "chatbot": "AI Chatbot",
+      "calendar": "Scheduling",
+      "leads": "Lead Management"
+    },
+    "steps": {
+      "chatbot": {
+        "step1": "Receive message",
+        "step2": "Process with AI",
+        "step3": "Search context",
+        "step4": "Generate response",
+        "step5": "Send to client"
+      },
+      "calendar": {
+        "step1": "New appointment",
+        "step2": "Check availability",
+        "step3": "Validate rules",
+        "step4": "Send invitation",
+        "step5": "Save to CRM"
+      },
+      "leads": {
+        "step1": "Capture lead",
+        "step2": "Enrich data",
+        "step3": "Check duplicates",
+        "step4": "Calculate score",
+        "step5": "Notify sales"
+      }
+    }
+  }
+}
+
