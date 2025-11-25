@@ -1,54 +1,200 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Mail, Phone, MapPin, User, Smartphone, MessageSquare, ArrowRight, Send } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function FinalCTA() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+    // Form state
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log("Form submitted:", formData);
+    };
+
     return (
         <motion.section
             ref={ref}
             id="contact"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="py-24 relative overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="py-24 relative overflow-hidden bg-background"
         >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-chart-2/10 to-chart-3/10" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.15),transparent_70%)]" />
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-chart-2/5 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-chart-2/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-            <div className="container relative z-10 px-4 mx-auto max-w-4xl text-center">
-                <div className="space-y-8">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                        <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
-                            Conecte-se ao
-                        </span>
-                        <br />
-                        <span className="bg-gradient-to-r from-primary via-chart-2 to-chart-3 bg-clip-text text-transparent">
-                            futuro agora.
-                        </span>
-                    </h2>
+            <div className="container relative z-10 px-4 mx-auto max-w-7xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Agende uma demonstração gratuita e descubra como a automação inteligente pode transformar sua empresa.
-                    </p>
+                    {/* Left Column: Contact Info */}
+                    <div className="flex flex-col gap-8 h-full">
+                        <div>
+                            <span className="text-primary font-medium tracking-wider uppercase text-sm">Fale Conosco</span>
+                            <h2 className="mt-2 text-4xl md:text-5xl font-bold leading-tight">
+                                Vamos Iniciar Sua <br />
+                                <span className="bg-gradient-to-r from-primary via-chart-2 to-chart-3 bg-clip-text text-transparent">
+                                    Jornada de Transformação
+                                </span>
+                            </h2>
+                            <p className="mt-4 text-muted-foreground text-lg max-w-md">
+                                Estamos prontos para levar sua empresa ao próximo nível com nossas soluções de automação inteligente.
+                            </p>
+                        </div>
 
-                    <Button
-                        size="lg"
-                        className="group relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary border-primary-border shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:shadow-[0_0_60px_rgba(139,92,246,0.6)] transition-all duration-300"
-                        data-testid="button-schedule-demo"
-                        asChild
-                    >
-                        <a href="https://calendly.com/pulsesync" target="_blank" rel="noopener noreferrer">
-                            <Calendar className="mr-2 h-5 w-5" />
-                            Agende uma demonstração
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </Button>
+                        {/* Contact Card */}
+                        <div className="bg-card/30 backdrop-blur-md border border-border/50 rounded-2xl p-8 space-y-6 shadow-lg flex-1 flex flex-col justify-center">
+                            <h3 className="text-xl font-semibold text-foreground">Entre em Contato</h3>
+
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                                        <MapPin className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-foreground">Localização</p>
+                                        <p className="text-sm text-muted-foreground">São Paulo, Brasil</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                                        <Phone className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-foreground">Telefone</p>
+                                        <p className="text-sm text-muted-foreground">+55 (11) 99999-9999</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                                        <Mail className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-foreground">Email</p>
+                                        <a href="mailto:pulsesyncwork@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                                            pulsesyncwork@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Form */}
+                    <div className="bg-card/50 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-10 shadow-2xl h-full flex flex-col justify-center">
+                        <div className="mb-10">
+                            <h3 className="text-2xl font-bold text-foreground">Ainda tem dúvidas?</h3>
+                            <p className="text-muted-foreground mt-2">
+                                Preencha o formulário abaixo e nossa equipe entrará em contato com você o mais breve possível.
+                            </p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <div className="relative">
+                                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                                        <Input
+                                            name="name"
+                                            placeholder="Nome Completo"
+                                            className="pl-10 bg-background/50 border-border/50 focus:border-primary transition-colors h-14 text-base"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="relative">
+                                        <Smartphone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                                        <Input
+                                            name="phone"
+                                            placeholder="Telefone / WhatsApp"
+                                            className="pl-10 bg-background/50 border-border/50 focus:border-primary transition-colors h-14 text-base"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <div className="relative">
+                                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                                        <Input
+                                            name="email"
+                                            type="email"
+                                            placeholder="Seu Email"
+                                            className="pl-10 bg-background/50 border-border/50 focus:border-primary transition-colors h-14 text-base"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="relative">
+                                        <select
+                                            name="service"
+                                            className="flex h-14 w-full rounded-md border border-border/50 bg-background/50 px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-muted-foreground focus:text-foreground"
+                                            value={formData.service}
+                                            onChange={handleChange}
+                                        >
+                                            <option value="" disabled>Selecione um Serviço</option>
+                                            <option value="automacao">Automação de Processos</option>
+                                            <option value="chatbot">Chatbots Inteligentes</option>
+                                            <option value="integracao">Integração de Sistemas</option>
+                                            <option value="consultoria">Consultoria n8n</option>
+                                            <option value="outro">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <div className="relative">
+                                    <MessageSquare className="absolute left-3 top-4 w-5 h-5 text-muted-foreground" />
+                                    <textarea
+                                        name="message"
+                                        placeholder="Como podemos ajudar?"
+                                        className="flex min-h-[180px] w-full rounded-md border border-border/50 bg-background/50 px-3 py-3 pl-10 text-base shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <Button
+                                type="submit"
+                                size="lg"
+                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-lg font-medium shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300"
+                            >
+                                Enviar Mensagem
+                                <Send className="ml-2 h-5 w-5" />
+                            </Button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </motion.section>
