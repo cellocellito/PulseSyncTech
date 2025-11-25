@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
-import SuccessStoriesSection from "@/components/SuccessStoriesSection";
 import WorkflowVisualization from "@/components/WorkflowVisualization";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FinalCTA from "@/components/FinalCTA";
@@ -15,7 +14,6 @@ export default function Home() {
       <BenefitsSection />
       <WorkflowVisualization />
       <TestimonialsSection />
-      <SuccessStoriesSection />
       <FinalCTA />
       <Footer />
     </div>

@@ -82,20 +82,16 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     return (
         <motion.div
             animate={{
-                backdropFilter: visible ? "blur(10px)" : "blur(5px)",
-                boxShadow: visible
-                    ? "0 0 24px rgba(139, 92, 246, 0.2), 0 1px 1px rgba(0, 0, 0, 0.05)"
-                    : "0 4px 6px rgba(0, 0, 0, 0.1)",
-                width: visible ? "60%" : "100%",
+                width: visible ? "60%" : "70%",
+                y: visible ? 10 : 0,
             }}
             transition={{
                 type: "spring",
-                stiffness: 300,
+                stiffness: 200,
                 damping: 30,
             }}
             className={cn(
-                "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-background/60 px-6 py-3 lg:flex border border-border/50",
-                visible && "bg-background/80",
+                "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-[#0a0a10]/80 backdrop-blur-md px-6 py-3 lg:flex border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)]",
                 className,
             )}
         >
@@ -111,7 +107,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <motion.div
             onMouseLeave={() => setHovered(null)}
             className={cn(
-                "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
+                "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-8 text-sm font-medium transition duration-200 lg:flex",
                 className,
             )}
         >
@@ -119,16 +115,10 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                 <a
                     onMouseEnter={() => setHovered(idx)}
                     onClick={onItemClick}
-                    className="relative px-4 py-2 text-muted-foreground hover:text-foreground dark:text-neutral-300"
+                    className="relative px-2 py-1 text-muted-foreground hover:text-foreground transition-colors"
                     key={`link-${idx}`}
                     href={item.link}
                 >
-                    {hovered === idx && (
-                        <motion.div
-                            layoutId="hovered"
-                            className="absolute inset-0 h-full w-full rounded-full bg-primary/10 dark:bg-neutral-800"
-                        />
-                    )}
                     <span className="relative z-20">{item.name}</span>
                 </a>
             ))}
@@ -140,23 +130,12 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
     return (
         <motion.div
             animate={{
-                backdropFilter: visible ? "blur(10px)" : "blur(5px)",
-                boxShadow: visible
-                    ? "0 0 24px rgba(139, 92, 246, 0.2)"
-                    : "0 4px 6px rgba(0, 0, 0, 0.1)",
+                backdropFilter: "blur(10px)",
                 width: visible ? "90%" : "100%",
-                paddingRight: visible ? "12px" : "16px",
-                paddingLeft: visible ? "12px" : "16px",
                 borderRadius: "2rem",
             }}
-            transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 50,
-            }}
             className={cn(
-                "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-background/60 py-3 lg:hidden border border-border/50",
-                visible && "bg-background/80",
+                "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-[#0a0a10]/90 border border-white/10 py-3 lg:hidden",
                 className,
             )}
         >
@@ -224,9 +203,9 @@ export const NavbarLogo = () => {
     return (
         <a
             href="#home"
-            className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
+            className="relative z-20 mr-4 flex items-center space-x-2 px-2"
         >
-            <span className="font-bold text-xl bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+            <span className="font-sora font-bold text-xl text-white uppercase tracking-wider pt-1">
                 Pulse Sync
             </span>
         </a>
@@ -245,19 +224,20 @@ export const NavbarButton = ({
     as?: React.ElementType;
     children: React.ReactNode;
     className?: string;
-    variant?: "primary" | "secondary" | "dark" | "gradient";
+    variant?: "primary" | "secondary" | "dark" | "gradient" | "white";
 } & (
         | React.ComponentPropsWithoutRef<"a">
         | React.ComponentPropsWithoutRef<"button">
     )) => {
     const baseStyles =
-        "px-4 py-2 rounded-md text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+        "px-6 py-2 rounded-full text-sm font-medium relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
     const variantStyles = {
         primary:
             "bg-primary text-primary-foreground shadow-[0_0_24px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)]",
         secondary: "bg-transparent shadow-none text-foreground hover:bg-primary/10",
         dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06)]",
+        white: "bg-white text-black hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.3)]",
         gradient:
             "bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
     };

@@ -3,19 +3,23 @@
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Shield, Zap, Headphones } from "lucide-react";
 
 const differentiators = [
     {
         title: "Segurança de dados",
         description: "Self-hosted ou cloud, você decide. Controle total sobre seus dados.",
+        icon: <Shield />,
     },
     {
         title: "Implementação rápida",
         description: "Do planejamento à execução em dias, não meses.",
+        icon: <Zap />,
     },
     {
         title: "Suporte especializado",
         description: "Time de experts em n8n 100% em português.",
+        icon: <Headphones />,
     },
 ];
 
@@ -42,7 +46,7 @@ export default function TestimonialsSection() {
                     </p>
                 </div>
 
-                <HoverEffect items={differentiators} />
+                <HoverEffect items={differentiators} className="lg:grid-cols-3" />
             </div>
         </motion.section>
     );

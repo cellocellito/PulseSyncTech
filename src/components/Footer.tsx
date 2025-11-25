@@ -14,7 +14,7 @@ export default function Footer() {
                 alt="Pulse Sync Logo"
                 className="w-8 h-8"
               /> */}
-                            <span className="text-xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+                            <span className="text-xl font-bold font-sora bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent uppercase tracking-wider">
                                 Pulse Sync
                             </span>
                         </div>

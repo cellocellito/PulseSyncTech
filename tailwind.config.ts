@@ -9,10 +9,10 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            borderRadius: {
-                lg: "var(--radius)",
-                md: "calc(var(--radius) - 2px)",
-                sm: "calc(var(--radius) - 4px)",
+            fontFamily: {
+                sans: ["var(--font-inter)", "sans-serif"],
+                serif: ["var(--font-playfair)", "serif"],
+                sora: ["var(--font-sora)", "sans-serif"],
             },
             colors: {
                 background: "hsl(var(--background))",
@@ -92,8 +92,16 @@ const config: Config = {
                     "100%": { opacity: "1", transform: "translateY(0)" },
                 },
                 "glow-pulse": {
-                    "0%, 100%": { boxShadow: "0 0 20px rgba(0, 240, 255, 0.3)" },
-                    "50%": { boxShadow: "0 0 40px rgba(0, 240, 255, 0.6)" },
+                    "0%, 100%": { boxShadow: "0 0 10px rgba(139, 92, 246, 0.1)" },
+                    "50%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" },
+                },
+                "twinkle": {
+                    "0%, 100%": { opacity: "1" },
+                    "50%": { opacity: "0.3" },
+                },
+                "eclipse-pulse": {
+                    "0%, 100%": { boxShadow: "0 -20px 100px rgba(139,92,246,0.2)" },
+                    "50%": { boxShadow: "0 -20px 150px rgba(139,92,246,0.5)" },
                 },
             },
             animation: {
@@ -102,8 +110,10 @@ const config: Config = {
                 "pulse-glow": "pulse-glow 2s ease-in-out infinite",
                 "float": "float 3s ease-in-out infinite",
                 "shimmer": "shimmer 3s linear infinite",
-                "fade-in-up": "fade-in-up 0.6s ease-out",
-                "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+                "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+                "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+                "twinkle": "twinkle 3s ease-in-out infinite",
+                "eclipse-pulse": "eclipse-pulse 3s ease-in-out infinite",
             },
         },
     },

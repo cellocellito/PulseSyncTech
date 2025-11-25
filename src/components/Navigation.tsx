@@ -41,7 +41,7 @@ export default function Navigation() {
                 <NavItems items={navLinks} onItemClick={() => { }} />
                 <div className="flex items-center gap-4">
                     <NavbarButton
-                        variant="primary"
+                        variant="white"
                         href="https://calendly.com/pulsesync"
                         target="_blank"
                         rel="noopener noreferrer"
