@@ -12,7 +12,7 @@ const benefits = [
     },
     {
         title: "Eficiência",
-        description: "Elimine erros humanos e tarefas repetitivas. Foque no que realmente importa.",
+        description: "Elimine erros humanos e tarefas repetitivas. Otimize recursos e foque no que realmente importa.",
         icon: <ChartBar className="w-8 h-8 text-primary" />,
     },
     {
