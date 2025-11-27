@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import ShinyText from "@/components/ui/shiny-text";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
     motion,
@@ -199,15 +200,20 @@ export const MobileNavToggle = ({
     );
 };
 
+
+
 export const NavbarLogo = () => {
     return (
         <a
             href="#home"
             className="relative z-20 mr-4 flex items-center space-x-2 px-2"
         >
-            <span className="font-sora font-bold text-xl text-white uppercase tracking-wider pt-1">
-                Pulse Sync
-            </span>
+            <ShinyText
+                text="Pulse Sync"
+                disabled={false}
+                speed={3}
+                className="font-sora font-bold text-xl uppercase tracking-wider pt-1"
+            />
         </a>
     );
 };

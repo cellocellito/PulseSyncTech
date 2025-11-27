@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Zap, ChartBar, Blocks, Target } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
 
 const benefits = [
     {
@@ -67,29 +68,32 @@ export default function BenefitsSection() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative p-8 rounded-3xl border border-white/10 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-500 hover:border-primary/50 overflow-hidden"
+                            className="h-full"
                         >
-                            {/* Hover Gradient Background */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <SpotlightCard className="h-full p-8 rounded-3xl border border-white/10 bg-transparent backdrop-blur-sm hover:bg-card/50 transition-all duration-500 hover:border-primary/50" spotlightColor="rgba(139, 92, 246, 0.2)">
+                                {/* Hover Gradient Background */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                            <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-                                <div className="p-3 w-fit rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/30 group-hover:bg-primary/20 transition-colors duration-500">
-                                    {benefit.icon}
+                                <div className="relative z-10 flex flex-col h-full justify-between gap-8">
+                                    <div className="p-3 w-fit rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/30 group-hover:bg-primary/20 transition-colors duration-500">
+                                        {benefit.icon}
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                                            {benefit.title}
+                                        </h3>
+                                        <p className="text-muted-foreground leading-relaxed">
+                                            {benefit.description}
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-4">
-                                    <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                                        {benefit.title}
-                                    </h3>
-                                    <p className="text-muted-foreground leading-relaxed">
-                                        {benefit.description}
-                                    </p>
-                                </div>
-                            </div>
+                            </SpotlightCard>
                         </motion.div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
