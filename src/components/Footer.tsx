@@ -53,11 +53,6 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-cases">
-                                    Casos de Sucesso
-                                </Link>
-                            </li>
-                            <li>
                                 <Link href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-contact">
                                     Contato
                                 </Link>

@@ -56,7 +56,7 @@ export default function WorkflowVisualization() {
     const [activeWorkflow, setActiveWorkflow] = useState<WorkflowType>("chatbot");
 
     return (
-        <section id="workflow" className="py-24 relative overflow-hidden">
+        <section id="services" className="py-24 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
@@ -82,8 +82,8 @@ export default function WorkflowVisualization() {
                                 variant={isActive ? "default" : "outline"}
                                 onClick={() => setActiveWorkflow(workflow.id)}
                                 className={`min-w-[160px] h-14 text-base transition-all duration-300 ${isActive
-                                        ? 'shadow-[0_0_30px_rgba(139,92,246,0.4)]'
-                                        : 'hover:border-primary/50'
+                                    ? 'shadow-[0_0_30px_rgba(139,92,246,0.4)]'
+                                    : 'hover:border-primary/50'
                                     }`}
                             >
                                 <Icon className="w-5 h-5 mr-2" />

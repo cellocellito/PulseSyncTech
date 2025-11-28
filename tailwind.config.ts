@@ -103,6 +103,16 @@ const config: Config = {
                     "0%, 100%": { boxShadow: "0 -20px 100px rgba(139,92,246,0.2)" },
                     "50%": { boxShadow: "0 -20px 150px rgba(139,92,246,0.5)" },
                 },
+                spotlight: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translate(-72%, -62%) scale(0.5)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translate(-50%,-40%) scale(1)",
+                    },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -114,6 +124,7 @@ const config: Config = {
                 "glow-pulse": "glow-pulse 4s ease-in-out infinite",
                 "twinkle": "twinkle 3s ease-in-out infinite",
                 "eclipse-pulse": "eclipse-pulse 3s ease-in-out infinite",
+                spotlight: "spotlight 2s ease .75s 1 forwards",
             },
         },
     },

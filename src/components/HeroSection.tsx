@@ -1,21 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { StarBackground } from "@/components/ui/star-background";
+import DarkVeil from "./DarkVeil";
 
 export default function HeroSection() {
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1a1a2e] via-background to-background">
-            <StarBackground />
-
-            {/* Planet Glow Effect */}
-            <div className="absolute top-[80%] md:top-[75%] left-1/2 -translate-x-1/2 w-[200%] md:w-[120%] h-[400px] bg-primary/30 blur-[120px] rounded-[100%] pointer-events-none z-0" />
-            <div className="absolute top-[85%] md:top-[80%] left-1/2 -translate-x-1/2 w-[180%] md:w-[100%] h-[350px] bg-primary/50 blur-[100px] rounded-[100%] pointer-events-none z-0" />
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 bg-background">
+            <div className="absolute w-[150%] h-[150%] -left-[25%] -top-[5%] z-0">
+                <DarkVeil />
+            </div>
 
             <div className="container relative z-30 px-4 mx-auto max-w-6xl text-center">
                 <div className="space-y-8 animate-fade-in-up">
-                    <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm mb-4 animate-glow-pulse">
-                        <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+                    <div className="inline-flex items-center rounded-full border border-[#925cf0]/30 bg-[#925cf0]/10 px-3 py-1 text-sm font-medium text-[#925cf0] backdrop-blur-sm mb-4 animate-glow-pulse">
+                        <span className="flex h-2 w-2 rounded-full bg-[#925cf0] mr-2 animate-pulse"></span>
                         Nova Era da Automação
                     </div>
 
@@ -58,14 +56,7 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Eclipse/Moon Effect */}
-            <div className="absolute top-[85%] md:top-[80%] left-1/2 -translate-x-1/2 w-[250%] md:w-[150%] aspect-square bg-black rounded-full animate-eclipse-pulse z-20 pointer-events-none overflow-hidden">
-                {/* Main Body Gradient: Purple Top -> Black Bottom (Compressed to 15%) */}
-                <div className="absolute inset-0 rounded-full bg-[linear-gradient(to_bottom,hsl(var(--primary)/0.4)_0%,#000000_10%)]" />
 
-                {/* Sharp Horizon Line Highlight */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-primary/60 shadow-[0_0_20px_rgba(139,92,246,0.5)]" />
-            </div>
         </section>
     );
 }

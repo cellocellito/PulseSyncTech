@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 
 const buttonVariants = cva(
     "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0" +
@@ -11,7 +12,7 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "bg-primary text-primary-foreground border border-primary-border",
+                    "bg-primary text-purple-80 border border-purple-80",
                 destructive:
                     "bg-destructive text-destructive-foreground border border-destructive-border",
                 outline:
@@ -47,13 +48,33 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
-        const Comp = asChild ? Slot : "button"
+        // Map variants to background colors for the inner part of HoverBorderGradient
+        const getBgClass = () => {
+            switch (variant) {
+                case "destructive":
+                    return "bg-destructive";
+                case "secondary":
+                    return "bg-secondary";
+                case "ghost":
+                    return "bg-transparent";
+                case "outline":
+                    return "bg-background";
+                default:
+                    return "bg-primary";
+            }
+        };
+
         return (
-            <Comp
-                className={cn(buttonVariants({ variant, size, className }))}
+            <HoverBorderGradient
+                asChild={asChild}
+                containerClassName={cn(buttonVariants({ variant, size, className }), "bg-transparent border-none")}
+                className="bg-transparent p-0 m-0" // Ensure content doesn't have conflicting bg/padding if handled by container
+                bgClassName={getBgClass()}
                 ref={ref}
                 {...props}
-            />
+            >
+                {props.children}
+            </HoverBorderGradient>
         )
     },
 )

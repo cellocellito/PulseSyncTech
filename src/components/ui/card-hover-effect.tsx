@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import SpotlightCard from "../SpotlightCard";
 
 export const HoverEffect = ({
     items,
@@ -89,12 +90,14 @@ const PremiumCard = ({
     className?: string;
     children: React.ReactNode;
 }) => {
+
     return (
-        <div
+        <SpotlightCard
             className={cn(
                 "rounded-2xl h-full w-full p-6 overflow-hidden bg-[#0a0a0a] border border-white/10 group-hover:border-primary/50 relative z-20 transition-all duration-300 flex flex-col justify-between min-h-[300px]",
                 className
             )}
+            spotlightColor="rgba(139, 92, 246, 0.15)"
         >
             <div className="relative z-50 flex flex-col h-full">
                 {children}
@@ -102,8 +105,9 @@ const PremiumCard = ({
 
             {/* Background Glow */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[40%] bg-primary/10 blur-[50px] rounded-full pointer-events-none" />
-        </div>
+        </SpotlightCard>
     );
+
 };
 
 const PremiumCardTitle = ({

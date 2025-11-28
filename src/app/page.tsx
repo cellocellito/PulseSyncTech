@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import WorkflowVisualization from "@/components/WorkflowVisualization";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <HeroSection />
       <BenefitsSection />
       <WorkflowVisualization />
-      <TestimonialsSection />
+      <WhyChooseUs />
       <FinalCTA />
       <Footer />
     </div>

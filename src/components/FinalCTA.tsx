@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin, User, Smartphone, MessageSquare, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, User, Smartphone, MessageSquare, ArrowRight, Send, Instagram } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -73,17 +73,17 @@ export default function FinalCTA() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-foreground">Localização</p>
-                                        <p className="text-sm text-muted-foreground">São Paulo, Brasil</p>
+                                        <p className="text-sm text-muted-foreground">Botucatu, São Paulo, Brasil</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
                                     <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                                        <Phone className="w-5 h-5" />
+                                        <Instagram className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <p className="font-medium text-foreground">Telefone</p>
-                                        <p className="text-sm text-muted-foreground">+55 (11) 99999-9999</p>
+                                        <p className="font-medium text-foreground">Instagram</p>
+                                        <a href="https://www.instagram.com/pulsesync.tech?igsh=MjFndTVpMWY1bXBl" className="text-sm text-muted-foreground hover:text-primary transition-colors">@pulsesync.tech</a>
                                     </div>
                                 </div>
 
