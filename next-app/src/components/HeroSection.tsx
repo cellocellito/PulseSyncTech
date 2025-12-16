@@ -34,8 +34,9 @@ export default function HeroSection() {
                             className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(139,92,246,0.5)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all duration-300"
                             data-testid="button-start-transformation"
                             asChild
+                            enableHoverBorder={false}
                         >
-                            <a href="https://calendly.com/pulsesync" target="_blank" rel="noopener noreferrer">
+                            <a href="https://crm.pulsesync.tech/" target="_blank" rel="noopener noreferrer">
                                 Inicie sua transformação
                             </a>
                         </Button>

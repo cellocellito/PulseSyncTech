@@ -85,6 +85,7 @@ export default function WorkflowVisualization() {
                                     ? 'shadow-[0_0_30px_rgba(139,92,246,0.4)]'
                                     : 'hover:border-primary/50'
                                     }`}
+                                enableHoverBorder={!isActive}
                             >
                                 <Icon className="w-5 h-5 mr-2" />
                                 {workflow.label}
@@ -104,7 +105,7 @@ export default function WorkflowVisualization() {
                         className="relative"
                     >
                         {/* Steps Container */}
-                        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 relative">
+                        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-4 relative">
                             {/* Connection Lines (desktop only) */}
                             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 -translate-y-1/2" />
 
@@ -119,15 +120,15 @@ export default function WorkflowVisualization() {
                                         className="relative"
                                     >
                                         {/* Step Card */}
-                                        <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] group">
+                                        <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-4 md:p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] group">
                                             {/* Step Number */}
                                             <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-lg">
                                                 {index + 1}
                                             </div>
 
                                             {/* Icon Container */}
-                                            <div className="mb-4 flex justify-center">
-                                                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${workflows.find(w => w.id === activeWorkflow)?.color} p-0.5 group-hover:scale-110 transition-transform duration-300`}>
+                                            <div className="mb-3 md:mb-4 flex justify-center">
+                                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${workflows.find(w => w.id === activeWorkflow)?.color} p-0.5 group-hover:scale-110 transition-transform duration-300`}>
                                                     <div className="w-full h-full rounded-xl bg-background/95 flex items-center justify-center">
                                                         <Icon className={`w-8 h-8 ${step.color}`} />
                                                     </div>
@@ -145,8 +146,8 @@ export default function WorkflowVisualization() {
 
                                         {/* Arrow (mobile only) */}
                                         {index < workflowSteps[activeWorkflow].length - 1 && (
-                                            <div className="md:hidden flex justify-center my-2">
-                                                <ArrowRight className="w-6 h-6 text-primary/50" />
+                                            <div className="md:hidden flex justify-center my-1">
+                                                <ArrowRight className="w-5 h-5 text-primary/50" />
                                             </div>
                                         )}
                                     </motion.div>

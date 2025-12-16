@@ -53,16 +53,16 @@ export default function WhyChooseUs() {
         <section
             ref={ref}
             id="about"
-            className="h-[40rem] w-full rounded-md flex md:items-center md:justify-center bg-black/80 antialiased relative overflow-hidden"
+            className="h-auto md:h-[40rem] w-full rounded-md flex md:items-center md:justify-center bg-black/80 antialiased relative overflow-hidden py-10 md:py-0"
         >
 
             <Spotlight />
 
-            <div className="container px-4 mx-auto max-w-7xl relative z-10 w-full pt-20 md:pt-0">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="container px-4 mx-auto max-w-7xl relative z-10 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                     {/* Left Column: Text */}
                     <div className="space-y-6 text-left max-w-3xl">
-                        <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-center md:items-start text-center md:text-left">
                             <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
                                 Por que escolher a
                             </h2>
@@ -73,8 +73,8 @@ export default function WhyChooseUs() {
                                 className="font-sora font-bold text-4xl md:text-7xl uppercase tracking-wider pt-2"
                             />
                         </div>
-                        <div className="mt-8 flex flex-row items-center gap-6">
-                            <div className="relative w-48 h-48 flex-shrink-0">
+                        <div className="mt-8 flex flex-col md:flex-row items-center gap-6">
+                            <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
                                 {imageData ? (
                                     <MetallicPaint
                                         imageData={imageData}
@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
                                     />
                                 )}
                             </div>
-                            <p className="font-normal text-base text-neutral-300 leading-relaxed">
+                            <p className="font-normal text-base text-neutral-300 leading-relaxed text-center md:text-left">
                                 Junte-se a empresas que já transformaram seus processos.
                                 A Pulse Sync oferece soluções robustas e escaláveis para automatizar seu negócio com segurança e eficiência, permitindo que você foque no que realmente importa: o crescimento da sua empresa.
                             </p>
@@ -103,9 +103,9 @@ export default function WhyChooseUs() {
                                 initial={{ opacity: 0, x: 50 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className="p-6 rounded-2xl border border-white/10 bg-transparent hover:bg-white/5 transition-colors duration-300 flex items-center gap-4 group backdrop-blur-sm"
+                                className="p-4 md:p-6 rounded-2xl border border-white/10 bg-transparent hover:bg-white/5 transition-colors duration-300 flex items-center gap-4 group backdrop-blur-sm"
                             >
-                                <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors border border-primary/20">
+                                <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors border border-primary/20 flex-shrink-0">
                                     {item.icon}
                                 </div>
                                 <div>

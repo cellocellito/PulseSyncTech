@@ -44,10 +44,11 @@ export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
     asChild?: boolean
+    enableHoverBorder?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, ...props }, ref) => {
+    ({ className, variant, size, asChild = false, enableHoverBorder = true, ...props }, ref) => {
         // Map variants to background colors for the inner part of HoverBorderGradient
         const getBgClass = () => {
             switch (variant) {
@@ -63,6 +64,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     return "bg-primary";
             }
         };
+
+        const Comp = asChild ? Slot : "button"
+
+        if (!enableHoverBorder) {
+            return (
+                <Comp
+                    className={cn(buttonVariants({ variant, size, className }))}
+                    ref={ref}
+                    {...props}
+                />
+            )
+        }
 
         return (
             <HoverBorderGradient

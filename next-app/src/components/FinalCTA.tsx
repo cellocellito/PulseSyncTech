@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin, User, Smartphone, MessageSquare, ArrowRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, User, Smartphone, MessageSquare, ArrowRight, Send, Instagram } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -24,10 +24,23 @@ export default function FinalCTA() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const isFormValid = formData.name && formData.phone && formData.email && formData.service && formData.message;
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log("Form submitted:", formData);
+        if (!isFormValid) return;
+
+        const subject = `Novo Contato via Site - ${formData.service}`;
+        const body = `Nome: ${formData.name}
+Telefone: ${formData.phone}
+Email: ${formData.email}
+Serviço: ${formData.service}
+
+Mensagem:
+${formData.message}`;
+
+        const mailtoLink = `mailto:pulsesyncwork@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
     };
 
     return (
@@ -73,17 +86,17 @@ export default function FinalCTA() {
                                     </div>
                                     <div>
                                         <p className="font-medium text-foreground">Localização</p>
-                                        <p className="text-sm text-muted-foreground">São Paulo, Brasil</p>
+                                        <p className="text-sm text-muted-foreground">Botucatu, São Paulo, Brasil</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
                                     <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                                        <Phone className="w-5 h-5" />
+                                        <Instagram className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <p className="font-medium text-foreground">Telefone</p>
-                                        <p className="text-sm text-muted-foreground">+55 (11) 99999-9999</p>
+                                        <p className="font-medium text-foreground">Instagram</p>
+                                        <a href="https://www.instagram.com/pulsesync.tech?igsh=MjFndTVpMWY1bXBl" className="text-sm text-muted-foreground hover:text-primary transition-colors">@pulsesync.tech</a>
                                     </div>
                                 </div>
 
@@ -188,7 +201,9 @@ export default function FinalCTA() {
                             <Button
                                 type="submit"
                                 size="lg"
-                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-lg font-medium shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300"
+                                disabled={!isFormValid}
+                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-14 text-lg font-medium shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                enableHoverBorder={false}
                             >
                                 Enviar Mensagem
                                 <Send className="ml-2 h-5 w-5" />

@@ -42,7 +42,7 @@ export default function Navigation() {
                 <div className="flex items-center gap-4">
                     <NavbarButton
                         variant="white"
-                        href="https://calendly.com/pulsesync"
+                        href="https://crm.pulsesync.tech/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -80,7 +80,7 @@ export default function Navigation() {
                             onClick={() => setIsMobileMenuOpen(false)}
                             variant="primary"
                             className="w-full"
-                            href="https://calendly.com/pulsesync"
+                            href="https://crm.pulsesync.tech/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

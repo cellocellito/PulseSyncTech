@@ -60,7 +60,7 @@ export default function BenefitsSection() {
                 {/* Cards Grid */}
                 <div
                     ref={ref}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
                 >
                     {benefits.map((benefit, index) => (
                         <motion.div
@@ -70,20 +70,23 @@ export default function BenefitsSection() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="h-full"
                         >
-                            <SpotlightCard className="h-full p-8 rounded-3xl border border-white/10 bg-transparent backdrop-blur-sm hover:bg-card/50 transition-all duration-500 hover:border-primary/50" spotlightColor="rgba(139, 92, 246, 0.2)">
+                            <SpotlightCard className="h-full p-4 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 bg-transparent backdrop-blur-sm hover:bg-card/50 transition-all duration-500 hover:border-primary/50" spotlightColor="rgba(139, 92, 246, 0.2)">
                                 {/* Hover Gradient Background */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                 <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-                                    <div className="p-3 w-fit rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/30 group-hover:bg-primary/20 transition-colors duration-500">
-                                        {benefit.icon}
+                                    <div className="p-2 md:p-3 w-fit rounded-xl md:rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/30 group-hover:bg-primary/20 transition-colors duration-500">
+                                        {/* Clone the icon to add responsive classes if needed, or rely on parent sizing */}
+                                        <div className="w-6 h-6 md:w-8 md:h-8 text-primary [&>svg]:w-full [&>svg]:h-full">
+                                            {benefit.icon}
+                                        </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                                    <div className="space-y-2 md:space-y-4">
+                                        <h3 className="text-lg md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                                             {benefit.title}
                                         </h3>
-                                        <p className="text-muted-foreground leading-relaxed">
+                                        <p className="text-xs md:text-base text-muted-foreground leading-relaxed">
                                             {benefit.description}
                                         </p>
                                     </div>
