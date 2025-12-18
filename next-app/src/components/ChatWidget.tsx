@@ -17,9 +17,20 @@ export default function ChatWidget() {
     const [messages, setMessages] = useState<Message[]>([
         { role: "assistant", content: "Olá! Sou a Pulse AI. Como posso ajudar você hoje?" },
     ]);
+    const [sessionId, setSessionId] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // Generate or retrieve session ID
+        let storedSessionId = localStorage.getItem("chat_session_id");
+        if (!storedSessionId) {
+            storedSessionId = `user_${Math.random().toString(36).substring(2, 15)}`;
+            localStorage.setItem("chat_session_id", storedSessionId);
+        }
+        setSessionId(storedSessionId);
+    }, []);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -42,7 +53,10 @@ export default function ChatWidget() {
             const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userMessage }),
+                body: JSON.stringify({
+                    message: userMessage,
+                    session_id: sessionId
+                }),
             });
 
             if (!response.ok) throw new Error("Failed to send message");
