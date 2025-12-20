@@ -61,7 +61,24 @@ export default function ChatWidget() {
             if (!response.ok) throw new Error("Failed to send message");
 
             const data = await response.json();
-            setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+            if (data.reply) {
+                // 1. Separa o texto onde tiver quebra de linha
+                const rawText = data.reply.replace(/^output:\s*/i, ""); // Remove a palavra "output:" se existir no começo
+                const messageParts = rawText.replace(/\\n/g, '\n').split('\n'); // Garante que \n vira Enter
+
+                // 2. Loop para exibir uma por uma com delay
+                messageParts.forEach((part: string, index: number) => {
+                    // Só exibe se a linha não estiver vazia
+                    if (part.trim()) {
+                        setTimeout(() => {
+                            setMessages((prev) => [
+                                ...prev,
+                                { role: "assistant", content: part.trim() }
+                            ]);
+                        }, index * 800); // 800ms de pausa entre cada mensagem (ajuste se quiser mais rápido)
+                    }
+                });
+            }
         } catch (error) {
             console.error("Error:", error);
             setMessages((prev) => [
