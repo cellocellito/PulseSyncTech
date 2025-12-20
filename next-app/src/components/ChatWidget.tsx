@@ -22,14 +22,13 @@ export default function ChatWidget() {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    const [lastTimestamp, setLastTimestamp] = useState(0);
+
     useEffect(() => {
-        // Generate or retrieve session ID
-        let storedSessionId = localStorage.getItem("chat_session_id");
-        if (!storedSessionId) {
-            storedSessionId = `user_${Math.random().toString(36).substring(2, 15)}`;
-            localStorage.setItem("chat_session_id", storedSessionId);
-        }
-        setSessionId(storedSessionId);
+        // Generate a new unique session ID on every page load
+        const newSessionId = `user_${Math.random().toString(36).substring(2, 15)}`;
+        setSessionId(newSessionId);
+        // We do NOT save to localStorage to ensure a fresh session on reload
     }, []);
 
     const scrollToBottom = () => {
