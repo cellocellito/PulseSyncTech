@@ -4,9 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Headphones } from "lucide-react";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import MetallicPaint, { parseLogoImage } from "@/components/ui/metallic-paint";
 import ShinyText from "@/components/ui/shiny-text";
-import { useState, useEffect } from "react";
 
 const differentiators = [
     {
@@ -29,25 +27,6 @@ const differentiators = [
 export default function WhyChooseUs() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [imageData, setImageData] = useState<ImageData | null>(null);
-
-    useEffect(() => {
-        async function loadDefaultImage() {
-            try {
-                const response = await fetch("/logo.svg");
-                const blob = await response.blob();
-                const file = new File([blob], "default.png", { type: blob.type });
-
-                const parsedData = await parseLogoImage(file);
-                setImageData(parsedData?.imageData ?? null);
-
-            } catch (err) {
-                console.error("Error loading default image:", err);
-            }
-        }
-
-        loadDefaultImage();
-    }, []);
 
     return (
         <section
@@ -75,18 +54,11 @@ export default function WhyChooseUs() {
                         </div>
                         <div className="mt-8 flex flex-col md:flex-row items-center gap-6">
                             <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-                                {imageData ? (
-                                    <MetallicPaint
-                                        imageData={imageData}
-                                        params={{ edge: 1.0, patternBlur: 0.005, patternScale: 2, refraction: 0.015, speed: 0.3, liquid: 0.07 }}
-                                    />
-                                ) : (
-                                    <img
-                                        src="/logo.svg"
-                                        alt="Pulse Sync Logo"
-                                        className="w-full h-full object-contain"
-                                    />
-                                )}
+                                <img
+                                    src="/logo.svg"
+                                    alt="Pulse Sync Logo"
+                                    className="w-full h-full object-contain grayscale brightness-0 invert opacity-70"
+                                />
                             </div>
                             <p className="font-normal text-base text-neutral-300 leading-relaxed text-center md:text-left">
                                 Junte-se a empresas que já transformaram seus processos.

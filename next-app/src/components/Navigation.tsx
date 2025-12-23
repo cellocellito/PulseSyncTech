@@ -12,6 +12,7 @@ import {
     MobileNavToggle,
     MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import { useLenis } from "@/hooks/useLenis";
 
 const navLinks = [
     { name: "Início", link: "#home" },
@@ -22,13 +23,16 @@ const navLinks = [
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const lenis = useLenis();
 
-    const handleNavClick = (href: string) => {
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
         if (href.startsWith("#")) {
-            const element = document.querySelector(href);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+            // Usa o Lenis para smooth scroll
+            lenis?.scrollTo(href, {
+                offset: -80,
+                duration: 1.5,
+            });
         }
         setIsMobileMenuOpen(false);
     };
@@ -69,7 +73,7 @@ export default function Navigation() {
                         <a
                             key={`mobile-link-${idx}`}
                             href={item.link}
-                            onClick={() => handleNavClick(item.link)}
+                            onClick={(e) => handleNavClick(e, item.link)}
                             className="relative text-muted-foreground hover:text-foreground text-lg w-full"
                         >
                             <span className="block">{item.name}</span>

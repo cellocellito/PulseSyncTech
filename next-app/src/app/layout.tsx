@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Sora } from "next/font/google";
 import "./globals.css";
 
 import ChatWidget from "@/components/ChatWidget";
+import QueryProvider from "@/components/QueryProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -24,11 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark scroll-smooth">
+    <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} ${playfair.variable} ${sora.variable} font-sans antialiased bg-background text-foreground`}>
-        {children}
-        <ChatWidget />
-        <SmoothScroll />
+        <QueryProvider>
+          <SmoothScroll>
+            {children}
+            <ChatWidget />
+          </SmoothScroll>
+        </QueryProvider>
       </body>
     </html>
   );

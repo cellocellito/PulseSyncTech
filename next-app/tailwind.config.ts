@@ -113,6 +113,18 @@ const config: Config = {
                         transform: "translate(-50%,-40%) scale(1)",
                     },
                 },
+                "gradient-shift": {
+                    "0%, 100%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                },
+                "pulse-slow": {
+                    "0%, 100%": { opacity: "0.3", transform: "scale(1)" },
+                    "50%": { opacity: "0.5", transform: "scale(1.05)" },
+                },
+                "pulse-slower": {
+                    "0%, 100%": { opacity: "0.2", transform: "scale(1)" },
+                    "50%": { opacity: "0.4", transform: "scale(1.08)" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
@@ -125,6 +137,9 @@ const config: Config = {
                 "twinkle": "twinkle 3s ease-in-out infinite",
                 "eclipse-pulse": "eclipse-pulse 3s ease-in-out infinite",
                 spotlight: "spotlight 2s ease .75s 1 forwards",
+                "gradient-shift": "gradient-shift 8s ease infinite",
+                "pulse-slow": "pulse-slow 4s ease-in-out infinite",
+                "pulse-slower": "pulse-slower 6s ease-in-out infinite",
             },
         },
     },
